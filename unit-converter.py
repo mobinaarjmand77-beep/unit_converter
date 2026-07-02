@@ -24,3 +24,20 @@ class LengthConverter(Converter):
         in_meter = value * self.rates[from_unit]
         result = in_meter / self.rates[to_unit]
         return result
+
+class WeightConverter(Converter):
+    def __init__(self):
+        Converter.__init__(self)
+        self.base_unit_name = "kilogram"
+        self.rates = {
+            "kilogram": 1,
+            "gram": 0.001,
+            "pound": 0.453592,
+            "ounce": 0.0283495
+        }
+        self.units_list = list(self.rates.keys())
+    
+    def convert(self, value, from_unit, to_unit):
+        in_kg = value * self.rates[from_unit]
+        result = in_kg / self.rates[to_unit]
+        return result
