@@ -41,3 +41,25 @@ class WeightConverter(Converter):
         in_kg = value * self.rates[from_unit]
         result = in_kg / self.rates[to_unit]
         return result
+
+class TemperatureConverter(Converter):
+    def __init__(self):
+        Converter.__init__(self)
+        self.base_unit_name = "celsius"
+        self.units_list = ["celsius", "fahrenheit", "kelvin"]
+    
+    def convert(self, value, from_unit, to_unit):
+
+        if from_unit == "celsius":
+            celsius = value
+        elif from_unit == "fahrenheit":
+            celsius = (value - 32) * 5 / 9
+        elif from_unit == "kelvin":
+            celsius = value - 273.15
+        
+        if to_unit == "celsius":
+            return celsius
+        elif to_unit == "fahrenheit":
+            return celsius * 9 / 5 + 32
+        elif to_unit == "kelvin":
+            return celsius + 273.15
