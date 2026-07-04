@@ -63,3 +63,11 @@ class TemperatureConverter(Converter):
             return celsius * 9 / 5 + 32
         elif to_unit == "kelvin":
             return celsius + 273.15
+
+def show_menu():
+    print("1.tabdil tol")
+    print("2. tabdil wazn")
+    print("3. tabdil dama")
+    print("0. khorooj")
+    return input("entekhabe shoma: ")
+    
