@@ -71,3 +71,9 @@ def show_menu():
     print("0. khorooj")
     return input("entekhabe shoma: ")
     
+def get_number(msg):
+    while True:
+        try:
+            return float(input(msg))
+        except:
+            print("adade motabar vared kon!")
