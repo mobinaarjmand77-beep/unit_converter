@@ -77,3 +77,34 @@ def get_number(msg):
             return float(input(msg))
         except:
             print("adade motabar vared kon!")
+
+def run_converter(converter, name):
+    units = converter.units_list
+    print(f"\nVahedhaye {name}:")
+    for i, u in enumerate(units, 1):
+        print(f" {i}. {u}")
+    
+    while True:
+        try:
+            fi = int(input("Shomareh mabda ra vared konid: ")) - 1
+            if 0 <= fi < len(units):
+                from_u = units[fi]
+                break
+        except:
+            pass
+        print("Shomareh eshtebah!")
+    
+    while True:
+        try:
+            ti = int(input("Shomareh maghsad ra vared konid: ")) - 1
+            if 0 <= ti < len(units):
+                to_u = units[ti]
+                break
+        except:
+            pass
+        print("Shomareh eshtebah!")
+    
+    val = get_number("Maghadar ra vared konid: ")
+    result = converter.convert(val, from_u, to_u)
+    print(f"\n{val} {from_u} = {result} {to_u}")
+    
