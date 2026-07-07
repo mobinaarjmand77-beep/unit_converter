@@ -108,3 +108,28 @@ def run_converter(converter, name):
     result = converter.convert(val, from_u, to_u)
     print(f"\n{val} {from_u} = {result} {to_u}")
     
+def main():
+    length_conv = LengthConverter()
+    weight_conv = WeightConverter()
+    temp_conv = TemperatureConverter()
+    
+    while True:
+        choice = show_menu()
+        
+        if choice == "0":
+            print("Khodahafez!")
+            break
+        elif choice == "1":
+            run_converter(length_conv, "Length")
+        elif choice == "2":
+            run_converter(weight_conv, "Weight")
+        elif choice == "3":
+            run_converter(temp_conv, "Temperature")
+        else:
+            print("gozineh namotabar!")
+            continue
+        
+        again = input("\nEdameh? (y/n): ")
+        if again != "y":
+            print("Khodahafez!")
+            break
